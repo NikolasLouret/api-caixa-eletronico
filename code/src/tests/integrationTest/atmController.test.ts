@@ -1,8 +1,9 @@
-import request from 'supertest';
+import request, { Test } from 'supertest';
 import app from '../../main/app';
+import { Server } from 'http';
 
-let server: any;
-let req: any;
+let server: Server;
+let req: Test;
 
 beforeAll(done => {
   server = app.listen(5000, done);
@@ -12,7 +13,7 @@ afterAll(done => {
   server.close(done);
 });
 
-beforeEach(() => { req = request(app).post('/api/saque') })
+beforeEach(() => { req = request(app).post('/api/saque'); });
 
 describe('ATM Controller', () => {
   it('should return the correct note distribution for a valid reqs', async () => {
@@ -33,14 +34,14 @@ describe('ATM Controller', () => {
     const response = await req.send({ valor: 0 });
     
     expect(response.status).toBe(400);
-    expect(response.body).toEqual({ error: "Invalid input: value must be a positive integer." });
+    expect(response.body).toEqual({ error: 'Invalid input: value must be a positive integer.' });
   });
 
   it('should return an error for invalid amount', async () => {
-    const response = await req.send({ valor: "380" });
+    const response = await req.send({ valor: '380' });
     
     expect(response.status).toBe(400);
-    expect(response.body).toEqual({ error: "Invalid input: value must be a positive integer." });
+    expect(response.body).toEqual({ error: 'Invalid input: value must be a positive integer.' });
   });
 
   it('should return an error for amounts that cannot be dispensed', async () => {

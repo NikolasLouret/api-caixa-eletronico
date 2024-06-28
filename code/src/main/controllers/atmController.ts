@@ -15,6 +15,7 @@ export const handleWithdrawal = (req: Request<Withdrawal>, res: Response<Withdra
         const result = calculateWithdrawal(valor);
         res.status(201).json(result);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         handleError(res, 400, error.message);
     }
