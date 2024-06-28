@@ -1,5 +1,9 @@
 import { calculateWithdrawal } from '../../src/services/atmService';
 
+afterAll(done => {
+  done();
+})
+
 describe('ATM Service', () => {
   it('should return the correct note distribution for 380', () => {
     const result = calculateWithdrawal(380);
