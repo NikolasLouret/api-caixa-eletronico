@@ -1,4 +1,4 @@
-import { calculateWithdrawal } from '../../main/services/atmService';
+import { calculateWithdrawal } from '../../api/services/atmService';
 
 describe('ATM Service', () => {
   test('should return the correct note distribution for 380', () => {

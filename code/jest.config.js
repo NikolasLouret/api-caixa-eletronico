@@ -3,7 +3,7 @@ module.exports = {
     testEnvironment: 'node',
     testMatch: ['**/tests/**/*.test.ts'],
     coverageDirectory: 'coverage',
-    collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts', "!src/main/*.ts"],
+    collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts', '!src/api/*.ts'],
     coverageThreshold: {
       global: {
         branches: 90,
