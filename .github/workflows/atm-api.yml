@@ -12,6 +12,10 @@ jobs:
   BUILD-AND-TEST:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./code
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -22,12 +26,16 @@ jobs:
         node-version: '20'
 
     - name: Install dependencies
-      working-directory: ./code
       run: npm install
+    
+    - name: Lint code
+      run: npm run lint
 
     - name: Run Unit and Integration tests
-      working-directory: ./code
-      run: npm run test
+      run: npm test -- --coverage
+
+    - name: Check coverage
+      run: cat coverage/lcov-report/index.html
 
   PUSH-TO-DOCKER:
     runs-on: ubuntu-latest
