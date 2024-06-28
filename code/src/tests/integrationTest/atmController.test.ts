@@ -4,11 +4,11 @@ import app from '../../main/app';
 let server: any;
 let req: any;
 
-beforeAll(() => {
-  server = app.listen(5000);
+beforeAll(done => {
+  server = app.listen(5000, done);
 });
 
-afterAll((done) => {
+afterAll(done => {
   server.close(done);
 });
 
