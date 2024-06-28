@@ -1,5 +1,5 @@
 import request, { Test } from 'supertest';
-import app from '../../main/app';
+import app from '../../api/app';
 import { Server } from 'http';
 
 let server: Server;
@@ -39,6 +39,13 @@ describe('ATM Controller', () => {
 
   it('should return an error for invalid amount', async () => {
     const response = await req.send({ valor: '380' });
+    
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({ error: 'Invalid input: value must be a positive integer.' });
+  });
+
+  it('should return an error for float amount', async () => {
+    const response = await req.send({ valor: 380.3 });
     
     expect(response.status).toBe(400);
     expect(response.body).toEqual({ error: 'Invalid input: value must be a positive integer.' });
