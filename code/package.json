@@ -6,7 +6,7 @@
     "start": "node dist/app.js",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "npx tsc",
-    "test": "jest --config jest.config.js --tsconfig=tsconfig.jest.json"
+    "test": "jest --detectOpenHandles --config jest.config.js --tsconfig=tsconfig.jest.json"
   },
   "keywords": [],
   "author": "",
