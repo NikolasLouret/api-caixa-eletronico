@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/main/server.js",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "npx tsc",
     "test": "jest --detectOpenHandles --config jest.config.js --tsconfig=tsconfig.jest.json"
