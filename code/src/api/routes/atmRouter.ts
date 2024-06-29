@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { handleWithdrawal } from '../controllers/atmController';
+import { withdrawal } from '../controllers/atmController';
 
 const atmRouter = Router();
 
-atmRouter.post('/', handleWithdrawal);
+atmRouter.post('/', withdrawal);
 
 export default atmRouter;

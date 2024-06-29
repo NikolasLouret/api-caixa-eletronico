@@ -3,7 +3,12 @@ import { calculateWithdrawal } from '../services/atmService';
 import { handleError } from '../utils/errorHandler';
 import { Withdrawal } from '../interfaces/atmInterface';
 
-export const handleWithdrawal = (req: Request<Withdrawal>, res: Response<Withdrawal>): void => {
+/**
+ * Handle a withdrawal request.
+ * @param req The amount to be withdrawn.
+ * @param res Number of bills of each value.
+ */
+export const withdrawal = (req: Request<Withdrawal>, res: Response<Withdrawal>): void => {
     const { valor } = req.body;
 
     if (!Number.isInteger(valor) || valor <= 0) {

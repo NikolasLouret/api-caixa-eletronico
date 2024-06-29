@@ -2,6 +2,11 @@ import { Withdrawal } from '../interfaces/atmInterface';
   
 const availableNotes = [100, 50, 20, 10, 5, 2];
 
+/**
+ * Calculate the number of bills of each value to be dispensed.
+ * @param amount The amount to be withdrawn.
+ * @returns Number of bills of each value.
+ */
 export const calculateWithdrawal = (amount: number): Withdrawal => {
     const result: Withdrawal = {
         100: 0,
