@@ -78,18 +78,18 @@ docker compose up --build
 
 A execução do `container` é realizada através do comando:
 ```sh
-docker run -p 3000:3000 nikolaslouret/atm-api
+docker run -p 5000:5000 nikolaslouret/atm-api
 ```
 
 ### Acesso a API
 
-A API estará disponível em `http://localhost:3000`.
+A API estará disponível em `http://localhost:5000`.
 
 #### Requisição `HTTP`
   
 ```http
 POST /api/saque HTTP/1.1
-Host: localhost:3000
+Host: localhost:5000
 Content-Type: application/json
 
 {
