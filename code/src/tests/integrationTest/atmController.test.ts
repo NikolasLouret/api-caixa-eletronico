@@ -1,12 +1,17 @@
 import request, { Test } from 'supertest';
-import app from '../../api/app';
+import { app } from '../../api/app';
 import { Server } from 'http';
 
 let server: Server;
 let req: Test;
 
+const PORT = 5001;
+
 beforeAll(done => {
-  server = app.listen(5000, done);
+  server = app.listen(PORT, () => {
+    console.log(`Test server is running on port ${PORT}`);
+    done();
+  });
 });
 
 afterAll(done => {
